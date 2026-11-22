@@ -18,4 +18,17 @@ An isolated VirtualBox lab running OWASP Juice Shop on localhost, with a Scope o
 
 ![Juice Shop running in the lab](images/lab-screenshot.png)
 
+## Lab Setup
+
+1. Install VirtualBox and create an Ubuntu 26.04 VM (4 GB RAM, 2 CPUs, 25 GB disk).
+2. Set the network to NAT with a port forward: host port 8080 to guest port 3000.
+3. Install Docker inside the VM: `sudo apt install -y docker.io`
+4. Start the app: `sudo docker run -d --name juice-shop -p 3000:3000 bkimminich/juice-shop`
+5. Open http://localhost:8080 on the host to reach the app.
+6. After a reboot, restart it with `sudo docker start juice-shop`.
+
+## Shutdown
+
+Run `sudo poweroff` in the VM when finished. The lab is only used while the VM is running.
+
 Training exercise only. No external systems are tested and all data is synthetic.
